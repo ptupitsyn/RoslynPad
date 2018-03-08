@@ -30,7 +30,7 @@ namespace RoslynPad.UI
 
             if (_client != null)
             {
-                AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+                //AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
                 TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
             }
         }
@@ -42,11 +42,11 @@ namespace RoslynPad.UI
             HandleException(args.Exception.Flatten().InnerException);
         }
 
-        private void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs args)
-        {
-            HandleException((Exception)args.ExceptionObject);
-            _client?.Flush();
-        }
+//        private void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs args)
+//        {
+//            HandleException((Exception)args.ExceptionObject);
+//            _client?.Flush();
+//        }
 
         protected void HandleException(Exception exception)
         {

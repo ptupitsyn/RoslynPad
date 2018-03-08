@@ -104,9 +104,9 @@ namespace RoslynPad.Hosting
                 syncContext.RunOnCurrentThread();
             });
 
-            var setApartmentState = typeof(Thread).GetRuntimeMethods()
-                .FirstOrDefault(m => m.Name == "SetApartmentState");
-            setApartmentState?.Invoke(executionThread, new object[] { 0 });
+//            var setApartmentState = typeof(Thread).GetRuntimeMethods()
+//                .FirstOrDefault(m => m.Name == "SetApartmentState");
+//            setApartmentState?.Invoke(executionThread, new object[] { 0 });
 
             executionThread.IsBackground = true;
             executionThread.Start();
